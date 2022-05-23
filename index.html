@@ -9,6 +9,7 @@
   </head>
   <body>
     <ul>
+      <span id="marker"></span>
       <li>
         <a href="#">Home</a>
       </li>
@@ -28,5 +29,20 @@
         <a href="#">Contact</a>
       </li>
     </ul>
+    <script>
+      let marker = document.querySelector("#marker");
+      let item = document.querySelectorAll("ul li a");
+
+      function Indicator(e) {
+        marker.style.top = e.offsetTop + "px";
+        marker.style.width = e.offsetWidth + "px";
+      }
+
+      item.forEach((link) => {
+        link.addEvenListener("mousemove", (e) => {
+          Indicator(e.target);
+        });
+      });
+    </script>
   </body>
 </html>
